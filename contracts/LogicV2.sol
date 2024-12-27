@@ -9,6 +9,10 @@ contract LogicV2 {
         number = _number * 2; // Cambiamos la lógica
     }
 
+    function getNumber() public view returns (uint256) {
+        return number;
+    }
+
     function getDouble() public view returns (uint) {
         return number * 2;
     }
