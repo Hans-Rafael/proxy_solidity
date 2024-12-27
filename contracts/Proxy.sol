@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-// contracts/Proxy.sol
 pragma solidity ^0.8.0;
 
 contract Proxy {
@@ -14,7 +13,9 @@ contract Proxy {
     }
 
     fallback() external payable {
-        (bool success, bytes memory data) = implementation.delegatecall(msg.data);
+        (bool success, ) = implementation.delegatecall(msg.data);
         require(success, "Delegatecall failed");
     }
+
+    receive() external payable {}
 }

@@ -6,10 +6,9 @@ describe("Proxy Contract", function () {
   let logicV2: any;
   let proxy: any;
   let owner: any;
-  let addr1: any;
 
   beforeEach(async function () {
-    [owner, addr1] = await ethers.getSigners();
+    [owner] = await ethers.getSigners();
 
     // Desplegar LogicV1
     const LogicV1 = await ethers.getContractFactory("LogicV1");
@@ -36,7 +35,7 @@ describe("Proxy Contract", function () {
 
     // Establecer número a través del proxy usando LogicV1
     await logicV1Proxy.setNumber(42);
-    expect(await logicV1Proxy.number()).to.equal(42);
+    expect(await logicV1Proxy.getNumber()).to.equal(42);
 
     // Actualizar el proxy para apuntar a LogicV2
     await proxy.connect(owner).upgrade(await logicV2.getAddress());
@@ -46,7 +45,7 @@ describe("Proxy Contract", function () {
 
     // Establecer número con nueva lógica usando LogicV2
     await logicV2Proxy.setNumber(42);
-    expect(await logicV2Proxy.number()).to.equal(42 * 2);
+    expect(await logicV2Proxy.getNumber()).to.equal(42 * 2);
 
     // Usar función adicional en LogicV2
     expect(await logicV2Proxy.getDouble()).to.equal(42 * 2 * 2);
