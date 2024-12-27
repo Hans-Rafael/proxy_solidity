@@ -51,7 +51,7 @@ Este proyecto muestra un ejemplo básico del funcionamiento de un contrato **pro
 
 1. Clona este repositorio:
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/Hans-Rafael/proxy_solidity.git
    cd proxy-example
    ```
 
