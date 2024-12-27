@@ -8,4 +8,8 @@ contract LogicV1 {
     function setNumber(uint _number) public {
         number = _number;
     }
+
+    function getNumber() public view returns (uint256) {
+        return number;
+    }
 }
