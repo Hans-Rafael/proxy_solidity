@@ -4,7 +4,9 @@
   "description": "Este proyecto muestra un ejemplo básico del funcionamiento de un contrato **proxy** en Solidity. El objetivo es aprender cómo un proxy delega llamadas a otro contrato (llamado contrato lógico o implementación), permitiendo flexibilidad para actualizar la lógica sin cambiar los datos ni la dirección del contrato.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.ts --network localhost"
   },
   "keywords": [],
   "author": "Hans Garcia",
@@ -12,5 +14,8 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "hardhat": "^2.22.17"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0"
   }
 }

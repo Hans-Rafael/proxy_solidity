@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-// contracts/LogicV1.sol
 pragma solidity ^0.8.0;
 
 contract LogicV1 {
